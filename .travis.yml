@@ -1,15 +1,12 @@
+dist: "xenial"
 language: python
 python:
   - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
   - "3.6"
-# command to install dependencies
+  - "3.7"
 install:
-  - pip install pysnow requests httpretty oauthlib requests_oauthlib coverage python-coveralls nose ijson six pytz
-# command to run tests
+    - pip install -r requirements.txt
 script:
-  - nosetests --with-coverage --cover-package=pysnow --cover-erase
+    - nosetests --with-coverage --cover-package=pysnow --cover-erase
 after_success:
-  - coveralls
+    - coveralls
